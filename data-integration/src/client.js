@@ -9,7 +9,7 @@
 const myDB = async () =>
   Array.from(
     {
-      length: 1000000,
+      length: 1000,
     },
     (value, index) => `${index}-laptop`,
   );
@@ -55,7 +55,10 @@ async function* proccessDBDataGen() {
     yield cartInfo;
   }
 }
+
+console.time()
 for await (const data of proccessDBDataGen()) {
   console.table(data);
   console.count();
 }
+console.timeEnd()
