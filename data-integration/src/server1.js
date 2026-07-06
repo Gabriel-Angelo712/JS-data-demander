@@ -17,8 +17,6 @@ async function handler(request, response) {
     };
 
     return response.end(JSON.stringify(item));
-
-    // console.log(`${name}`);
   }
 
   response.end("hey!");

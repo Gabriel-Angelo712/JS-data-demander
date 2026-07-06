@@ -3,7 +3,7 @@
 
     1. Read data from database
     2. Go to a second API to get more detailed information
-    3. Submit data to othr API
+    3. Submit data to other API
 */
 
 const myDB = async () =>
@@ -17,6 +17,7 @@ const myDB = async () =>
 const PRODUCTS_API = "http://localhost:3000/products";
 const CART_API = "http://localhost:4000/cart";
 
+//BAD PROCEDURING
 async function proccessDBData() {
   const products = await myDB();
   const responses = [];
@@ -39,6 +40,7 @@ async function proccessDBData() {
 
 // console.table(await proccessDBData());
 
+//GOOD PROCEDURING
 async function* proccessDBDataGen() {
   const products = await myDB();
 
@@ -56,6 +58,7 @@ async function* proccessDBDataGen() {
   }
 }
 
+//EXECUTION
 console.time()
 for await (const data of proccessDBDataGen()) {
   console.table(data);
