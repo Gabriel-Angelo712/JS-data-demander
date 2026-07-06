@@ -9,7 +9,7 @@
 const myDB = async () =>
   Array.from(
     {
-      length: 100000,
+      length: 1000000,
     },
     (value, index) => `${index}-laptop`,
   );
